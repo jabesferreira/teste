@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Básico - Saúde Financeira</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">📝 Quiz Básico</h1>
+            <p class="subtitle">Teste seus conhecimentos sobre finanças pessoais</p>
+            <div class="quiz-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgress"></div>
+                </div>
+                <span class="progress-text" id="progressText">Pergunta 1 de 10</span>
+            </div>
+        </header>
+
+        <main class="quiz-container">
+            <div class="quiz-card" id="quizCard">
+                <div class="question-number" id="questionNumber">1</div>
+                <h2 class="question-text" id="questionText">Carregando pergunta...</h2>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- Opções serão inseridas dinamicamente -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="quiz-btn secondary" onclick="returnToMenu()">
+                        🏠 Menu Principal
+                    </button>
+                    <button class="quiz-btn primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                        Próxima ➡️
+                    </button>
+                </div>
+            </div>
+
+            <div class="quiz-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Acertos:</span>
+                    <span class="stat-value" id="correctAnswers">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pontuação:</span>
+                    <span class="stat-value" id="currentScore">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tempo:</span>
+                    <span class="stat-value" id="timeElapsed">00:00</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal de resultado -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content result-modal">
+                <h2 id="resultTitle">Quiz Concluído!</h2>
+                <div class="result-stats">
+                    <div class="result-item">
+                        <span class="result-label">Acertos:</span>
+                        <span class="result-value" id="finalCorrect">0/10</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Pontuação:</span>
+                        <span class="result-value" id="finalScore">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Tempo Total:</span>
+                        <span class="result-value" id="finalTime">00:00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Desempenho:</span>
+                        <span class="result-value" id="performance">-</span>
+                    </div>
+                </div>
+                
+                <div class="result-message" id="resultMessage">
+                    <!-- Mensagem personalizada baseada no desempenho -->
+                </div>
+                
+                <div class="result-actions">
+                    <button class="quiz-btn secondary" onclick="restartQuiz()">
+                        🔄 Tentar Novamente
+                    </button>
+                    <button class="quiz-btn primary" onclick="completeQuizPhase()">
+                        ✅ Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz1.js"></script>
+</body>
+</html>
+

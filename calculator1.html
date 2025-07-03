@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros Compostos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🧮 Calculadora de Juros Compostos</h1>
+            <p class="subtitle">Descubra o poder dos juros compostos para seus investimentos</p>
+        </header>
+
+        <main class="calculator-container">
+            <div class="calculator-wrapper">
+                <div class="calculator-form">
+                    <h2>💰 Simule seu Investimento</h2>
+                    
+                    <div class="input-group">
+                        <label for="initialAmount">Valor Inicial (R$)</label>
+                        <input type="number" id="initialAmount" placeholder="Ex: 1000" min="0" step="0.01">
+                        <small>Quanto você tem para investir agora</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="monthlyContribution">Aporte Mensal (R$)</label>
+                        <input type="number" id="monthlyContribution" placeholder="Ex: 500" min="0" step="0.01">
+                        <small>Quanto você pode investir todo mês</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="annualRate">Taxa de Juros Anual (%)</label>
+                        <input type="number" id="annualRate" placeholder="Ex: 10" min="0" max="100" step="0.01">
+                        <small>Rentabilidade esperada por ano</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="timePeriod">Período (anos)</label>
+                        <input type="number" id="timePeriod" placeholder="Ex: 10" min="1" max="50" step="1">
+                        <small>Por quanto tempo você vai investir</small>
+                    </div>
+
+                    <div class="calculator-buttons">
+                        <button class="calc-btn primary" onclick="calculateCompoundInterest()">
+                            📊 Calcular
+                        </button>
+                        <button class="calc-btn secondary" onclick="clearCalculator()">
+                            🗑️ Limpar
+                        </button>
+                    </div>
+
+                    <div class="preset-scenarios">
+                        <h3>💡 Cenários Prontos</h3>
+                        <div class="scenario-buttons">
+                            <button class="scenario-btn" onclick="loadScenario('conservative')">
+                                🛡️ Conservador
+                            </button>
+                            <button class="scenario-btn" onclick="loadScenario('moderate')">
+                                ⚖️ Moderado
+                            </button>
+                            <button class="scenario-btn" onclick="loadScenario('aggressive')">
+                                🚀 Arrojado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-panel" id="resultsPanel" style="display: none;">
+                    <h2>📈 Resultados da Simulação</h2>
+                    
+                    <div class="result-summary">
+                        <div class="result-item highlight">
+                            <span class="result-label">Valor Final:</span>
+                            <span class="result-value" id="finalAmount">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Investido:</span>
+                            <span class="result-value" id="totalInvested">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Juros Ganhos:</span>
+                            <span class="result-value profit" id="interestEarned">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Multiplicação:</span>
+                            <span class="result-value" id="multiplication">0x</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="growthChart" width="400" height="200"></canvas>
+                    </div>
+
+                    <div class="breakdown-table">
+                        <h3>📋 Evolução Ano a Ano</h3>
+                        <div class="table-container" id="yearlyBreakdown">
+                            <!-- Tabela será inserida dinamicamente -->
+                        </div>
+                    </div>
+
+                    <div class="insights-panel">
+                        <h3>💡 Insights da Simulação</h3>
+                        <div class="insights-content" id="insightsContent">
+                            <!-- Insights serão inseridos dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="educational-content">
+                <h2>📚 Aprenda sobre Juros Compostos</h2>
+                
+                <div class="education-cards">
+                    <div class="education-card">
+                        <h3>🔄 O que são Juros Compostos?</h3>
+                        <p>Juros compostos são "juros sobre juros". Isso significa que você ganha rendimento não apenas sobre o valor inicial, mas também sobre os juros já acumulados.</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>⏰ O Poder do Tempo</h3>
+                        <p>Quanto mais tempo você deixa o dinheiro investido, mais poderoso fica o efeito dos juros compostos. Por isso é importante começar a investir cedo!</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3">💪 Aportes Regulares</h3>
+                        <p>Fazer aportes mensais acelera muito o crescimento do patrimônio. Mesmo valores pequenos fazem grande diferença no longo prazo.</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>📊 Fórmula Matemática</h3>
+                        <p><strong>M = C × (1 + i)^t + PMT × [((1 + i)^t - 1) / i]</strong><br>
+                        Onde: M = Montante, C = Capital inicial, i = Taxa, t = Tempo, PMT = Aporte mensal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="calc-btn secondary" onclick="returnToMenu()">
+                    🏠 Menu Principal
+                </button>
+                <button class="calc-btn tertiary" onclick="shareResults()">
+                    📤 Compartilhar
+                </button>
+                <button class="calc-btn primary" onclick="completeCalculatorPhase()">
+                    ✅ Continuar
+                </button>
+            </div>
+        </main>
+
+        <!-- Modal de compartilhamento -->
+        <div id="shareModal" class="modal">
+            <div class="modal-content share-modal">
+                <span class="close" onclick="closeShareModal()">&times;</span>
+                <h2>📤 Compartilhar Simulação</h2>
+                <div class="share-content">
+                    <div class="share-summary" id="shareSummary">
+                        <!-- Resumo será inserido dinamicamente -->
+                    </div>
+                    <div class="share-actions">
+                        <button class="calc-btn primary" onclick="copyToClipboard()">
+                            📋 Copiar Texto
+                        </button>
+                        <button class="calc-btn secondary" onclick="downloadPDF()">
+                            📄 Baixar PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/calculator1.js"></script>
+</body>
+</html>
+

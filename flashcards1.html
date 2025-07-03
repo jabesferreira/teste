@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Conceitos Básicos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/flashcards.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🃏 Flashcards</h1>
+            <p class="subtitle">Aprenda conceitos financeiros básicos com cartões interativos</p>
+            <div class="flashcard-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="flashcardProgress"></div>
+                </div>
+                <span class="progress-text" id="progressText">Cartão 1 de 15</span>
+            </div>
+        </header>
+
+        <main class="flashcard-container">
+            <div class="flashcard-wrapper">
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="flashcard-front">
+                        <div class="card-number" id="cardNumber">1</div>
+                        <div class="card-content">
+                            <h2 id="cardTerm">Carregando...</h2>
+                            <p class="flip-hint">Clique para ver a definição</p>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-content">
+                            <h3>Definição:</h3>
+                            <p id="cardDefinition">Carregando definição...</p>
+                            <div class="card-example" id="cardExample"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flashcard-controls">
+                <button class="flashcard-btn difficulty easy" onclick="markDifficulty('easy')" id="easyBtn">
+                    😊 Fácil
+                </button>
+                <button class="flashcard-btn difficulty medium" onclick="markDifficulty('medium')" id="mediumBtn">
+                    🤔 Médio
+                </button>
+                <button class="flashcard-btn difficulty hard" onclick="markDifficulty('hard')" id="hardBtn">
+                    😰 Difícil
+                </button>
+            </div>
+
+            <div class="navigation-controls">
+                <button class="flashcard-btn secondary" onclick="previousCard()" id="prevBtn" disabled>
+                    ⬅️ Anterior
+                </button>
+                <button class="flashcard-btn primary" onclick="nextCard()" id="nextBtn">
+                    Próximo ➡️
+                </button>
+            </div>
+
+            <div class="study-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Estudados:</span>
+                    <span class="stat-value" id="studiedCards">0/15</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Fáceis:</span>
+                    <span class="stat-value easy-color" id="easyCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Médios:</span>
+                    <span class="stat-value medium-color" id="mediumCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Difíceis:</span>
+                    <span class="stat-value hard-color" id="hardCount">0</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="flashcard-btn secondary" onclick="returnToMenu()">
+                    🏠 Menu Principal
+                </button>
+                <button class="flashcard-btn tertiary" onclick="shuffleCards()">
+                    🔀 Embaralhar
+                </button>
+                <button class="flashcard-btn tertiary" onclick="reviewDifficult()">
+                    📚 Revisar Difíceis
+                </button>
+            </div>
+        </main>
+
+        <!-- Modal de conclusão -->
+        <div id="completionModal" class="modal">
+            <div class="modal-content completion-modal">
+                <h2>🎉 Parabéns!</h2>
+                <p>Você estudou todos os flashcards!</p>
+                
+                <div class="completion-stats">
+                    <div class="completion-item">
+                        <span class="completion-label">Total Estudado:</span>
+                        <span class="completion-value" id="finalStudied">15/15</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Conceitos Fáceis:</span>
+                        <span class="completion-value easy-color" id="finalEasy">0</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Conceitos Médios:</span>
+                        <span class="completion-value medium-color" id="finalMedium">0</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Conceitos Difíceis:</span>
+                        <span class="completion-value hard-color" id="finalHard">0</span>
+                    </div>
+                </div>
+                
+                <div class="completion-message" id="completionMessage">
+                    <!-- Mensagem personalizada baseada no desempenho -->
+                </div>
+                
+                <div class="completion-actions">
+                    <button class="flashcard-btn secondary" onclick="restartFlashcards()">
+                        🔄 Estudar Novamente
+                    </button>
+                    <button class="flashcard-btn primary" onclick="completeFlashcardPhase()">
+                        ✅ Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/flashcards1.js"></script>
+</body>
+</html>
+

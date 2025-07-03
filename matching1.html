@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Correspondência - Termos Financeiros</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/matching.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🔗 Jogo de Correspondência</h1>
+            <p class="subtitle">Conecte os termos financeiros com suas definições</p>
+            <div class="game-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="gameProgress"></div>
+                </div>
+                <span class="progress-text" id="progressText">0 de 10 correspondências</span>
+            </div>
+        </header>
+
+        <main class="matching-container">
+            <div class="game-board">
+                <div class="terms-column">
+                    <h3>📝 Termos</h3>
+                    <div class="items-container" id="termsContainer">
+                        <!-- Termos serão inseridos dinamicamente -->
+                    </div>
+                </div>
+                
+                <div class="definitions-column">
+                    <h3>📖 Definições</h3>
+                    <div class="items-container" id="definitionsContainer">
+                        <!-- Definições serão inseridas dinamicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Acertos:</span>
+                    <span class="stat-value" id="correctMatches">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tentativas:</span>
+                    <span class="stat-value" id="totalAttempts">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Precisão:</span>
+                    <span class="stat-value" id="accuracy">100%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tempo:</span>
+                    <span class="stat-value" id="gameTime">00:00</span>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="matching-btn secondary" onclick="returnToMenu()">
+                    🏠 Menu Principal
+                </button>
+                <button class="matching-btn tertiary" onclick="shuffleItems()">
+                    🔀 Embaralhar
+                </button>
+                <button class="matching-btn tertiary" onclick="showHint()">
+                    💡 Dica
+                </button>
+                <button class="matching-btn primary" onclick="resetGame()">
+                    🔄 Reiniciar
+                </button>
+            </div>
+
+            <div class="instructions">
+                <h3>📋 Como Jogar</h3>
+                <p>1. Clique em um termo na coluna da esquerda</p>
+                <p>2. Clique na definição correspondente na coluna da direita</p>
+                <p>3. Se estiver correto, ambos ficarão verdes e conectados</p>
+                <p>4. Se estiver errado, ambos ficarão vermelhos temporariamente</p>
+                <p>5. Complete todas as correspondências para ganhar!</p>
+            </div>
+        </main>
+
+        <!-- Modal de conclusão -->
+        <div id="completionModal" class="modal">
+            <div class="modal-content completion-modal">
+                <h2>🎉 Parabéns!</h2>
+                <p>Você completou todas as correspondências!</p>
+                
+                <div class="completion-stats">
+                    <div class="completion-item">
+                        <span class="completion-label">Correspondências:</span>
+                        <span class="completion-value" id="finalMatches">10/10</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Precisão:</span>
+                        <span class="completion-value" id="finalAccuracy">100%</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Tempo Total:</span>
+                        <span class="completion-value" id="finalTime">00:00</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Pontuação:</span>
+                        <span class="completion-value" id="finalScore">0</span>
+                    </div>
+                </div>
+                
+                <div class="completion-message" id="completionMessage">
+                    <!-- Mensagem personalizada baseada no desempenho -->
+                </div>
+                
+                <div class="completion-actions">
+                    <button class="matching-btn secondary" onclick="resetGame()">
+                        🔄 Jogar Novamente
+                    </button>
+                    <button class="matching-btn primary" onclick="completeMatchingPhase()">
+                        ✅ Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de dica -->
+        <div id="hintModal" class="modal">
+            <div class="modal-content hint-modal">
+                <span class="close" onclick="closeHintModal()">&times;</span>
+                <h2>💡 Dica</h2>
+                <div class="hint-content" id="hintContent">
+                    <!-- Dica será inserida dinamicamente -->
+                </div>
+                <button class="matching-btn primary" onclick="closeHintModal()">
+                    Entendi!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/matching1.js"></script>
+</body>
+</html>
+

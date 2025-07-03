@@ -1,0 +1,536 @@
+/* Estilos específicos para Calculadoras */
+
+.calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.calculator-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.calculator-form {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-form h2 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #e6f3ff;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #0080ff;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.3);
+}
+
+.input-group small {
+    display: block;
+    color: #b3d9ff;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.calculator-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.calc-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.calc-btn.primary {
+    background: linear-gradient(45deg, #0066cc, #0080ff);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.calc-btn.primary:hover {
+    background: linear-gradient(45deg, #0080ff, #00aaff);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.calc-btn.secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.calc-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.calc-btn.tertiary {
+    background: rgba(135, 206, 235, 0.2);
+    color: #87ceeb;
+    border: 1px solid rgba(135, 206, 235, 0.4);
+}
+
+.calc-btn.tertiary:hover {
+    background: rgba(135, 206, 235, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Cenários prontos */
+.preset-scenarios {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.preset-scenarios h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.scenario-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.scenario-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e6f3ff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.scenario-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Painel de resultados */
+.results-panel {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.results-panel h2 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.result-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-item.highlight {
+    background: linear-gradient(45deg, rgba(0, 102, 204, 0.3), rgba(0, 128, 255, 0.2));
+    border-color: rgba(0, 128, 255, 0.4);
+    grid-column: 1 / -1;
+}
+
+.result-label {
+    display: block;
+    color: #b3d9ff;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.result-value {
+    display: block;
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.result-item.highlight .result-value {
+    font-size: 1.8rem;
+    color: #87ceeb;
+}
+
+.result-value.profit {
+    color: #00cc00;
+}
+
+/* Gráfico */
+.chart-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+#growthChart {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tabela de evolução */
+.breakdown-table h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.breakdown-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.breakdown-table th,
+.breakdown-table td {
+    padding: 8px 12px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.breakdown-table th {
+    background: rgba(255, 255, 255, 0.1);
+    color: #87ceeb;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.breakdown-table td:first-child,
+.breakdown-table th:first-child {
+    text-align: left;
+}
+
+/* Insights */
+.insights-panel {
+    margin-top: 25px;
+}
+
+.insights-panel h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.insights-content {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.insight-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #0080ff;
+}
+
+.insight-item:last-child {
+    margin-bottom: 0;
+}
+
+.insight-item h4 {
+    color: #87ceeb;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.insight-item p {
+    color: #e6f3ff;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Conteúdo educacional */
+.educational-content {
+    margin: 40px 0;
+}
+
+.educational-content h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.education-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.education-card h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.education-card p {
+    color: #e6f3ff;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Modal de compartilhamento */
+.share-modal {
+    max-width: 600px;
+}
+
+.share-content {
+    text-align: center;
+}
+
+.share-summary {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.share-summary h3 {
+    color: #87ceeb;
+    margin-bottom: 15px;
+}
+
+.share-summary p {
+    color: #e6f3ff;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.share-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .calculator-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .calculator-form,
+    .results-panel {
+        padding: 20px;
+    }
+    
+    .calculator-buttons {
+        flex-direction: column;
+    }
+    
+    .scenario-buttons {
+        flex-direction: column;
+    }
+    
+    .result-summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .education-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .calc-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .share-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 10px;
+    }
+    
+    .calculator-form,
+    .results-panel {
+        padding: 15px;
+    }
+    
+    .education-card {
+        padding: 20px;
+    }
+    
+    .breakdown-table {
+        font-size: 0.8rem;
+    }
+    
+    .breakdown-table th,
+    .breakdown-table td {
+        padding: 6px 8px;
+    }
+}
+
+/* Animações */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-panel {
+    animation: slideInUp 0.6s ease;
+}
+
+.education-card {
+    animation: slideInUp 0.6s ease;
+}
+
+.education-card:nth-child(1) { animation-delay: 0.1s; }
+.education-card:nth-child(2) { animation-delay: 0.2s; }
+.education-card:nth-child(3) { animation-delay: 0.3s; }
+.education-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Estados especiais */
+.input-group.error input {
+    border-color: #ff3333;
+    background: rgba(255, 51, 51, 0.1);
+}
+
+.input-group.error small {
+    color: #ff6666;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.calc-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+

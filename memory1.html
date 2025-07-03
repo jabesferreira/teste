@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Conceitos Financeiros</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/memory.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🧠 Jogo da Memória</h1>
+            <p class="subtitle">Encontre os pares de conceitos financeiros relacionados</p>
+            <div class="game-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="gameProgress"></div>
+                </div>
+                <span class="progress-text" id="progressText">0 de 8 pares encontrados</span>
+            </div>
+        </header>
+
+        <main class="memory-container">
+            <div class="memory-board" id="memoryBoard">
+                <!-- Cartas serão inseridas dinamicamente -->
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Pares:</span>
+                    <span class="stat-value" id="foundPairs">0/8</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tentativas:</span>
+                    <span class="stat-value" id="attempts">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Acertos:</span>
+                    <span class="stat-value" id="matches">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Tempo:</span>
+                    <span class="stat-value" id="gameTime">00:00</span>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="memory-btn secondary" onclick="returnToMenu()">
+                    🏠 Menu Principal
+                </button>
+                <button class="memory-btn tertiary" onclick="showPreview()">
+                    👁️ Prévia (3s)
+                </button>
+                <button class="memory-btn primary" onclick="resetGame()">
+                    🔄 Novo Jogo
+                </button>
+            </div>
+
+            <div class="difficulty-selector">
+                <h3>🎯 Dificuldade</h3>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn active" onclick="setDifficulty('easy')" data-difficulty="easy">
+                        😊 Fácil (4x4)
+                    </button>
+                    <button class="difficulty-btn" onclick="setDifficulty('hard')" data-difficulty="hard">
+                        😰 Difícil (4x6)
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal de conclusão -->
+        <div id="completionModal" class="modal">
+            <div class="modal-content completion-modal">
+                <h2>🎉 Parabéns!</h2>
+                <p>Você encontrou todos os pares!</p>
+                
+                <div class="completion-stats">
+                    <div class="completion-item">
+                        <span class="completion-label">Pares Encontrados:</span>
+                        <span class="completion-value" id="finalPairs">8/8</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Tentativas:</span>
+                        <span class="completion-value" id="finalAttempts">0</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Precisão:</span>
+                        <span class="completion-value" id="finalAccuracy">100%</span>
+                    </div>
+                    <div class="completion-item">
+                        <span class="completion-label">Tempo:</span>
+                        <span class="completion-value" id="finalTime">00:00</span>
+                    </div>
+                </div>
+                
+                <div class="completion-message" id="completionMessage">
+                    <!-- Mensagem personalizada baseada no desempenho -->
+                </div>
+                
+                <div class="memory-master-badge" id="memoryBadge" style="display: none;">
+                    <div class="badge-icon">🧠</div>
+                    <div class="badge-text">
+                        <h3>Mestre da Memória Financeira!</h3>
+                        <p>Você dominou todos os conceitos!</p>
+                    </div>
+                </div>
+                
+                <div class="completion-actions">
+                    <button class="memory-btn secondary" onclick="resetGame()">
+                        🔄 Jogar Novamente
+                    </button>
+                    <button class="memory-btn primary" onclick="completeMemoryPhase()">
+                        🏆 Finalizar Jogo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/memory1.js"></script>
+</body>
+</html>
+
