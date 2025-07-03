@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Saúde Financeira</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">💰 Jogo de Saúde Financeira</h1>
+            <p class="subtitle">Aprenda sobre finanças de forma divertida e interativa!</p>
+        </header>
+
+        <main class="main-content">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="phases-grid">
+                <div class="phase-card" data-phase="1">
+                    <div class="phase-icon">📝</div>
+                    <h3>Fase 1: Quiz Básico</h3>
+                    <p>Teste seus conhecimentos básicos sobre finanças pessoais</p>
+                    <button class="phase-btn" onclick="startPhase('quiz1')">Iniciar</button>
+                </div>
+
+                <div class="phase-card" data-phase="2">
+                    <div class="phase-icon">🃏</div>
+                    <h3>Fase 2: Flashcards</h3>
+                    <p>Aprenda conceitos financeiros com cartões interativos</p>
+                    <button class="phase-btn" onclick="startPhase('flashcards1')">Iniciar</button>
+                </div>
+
+                <div class="phase-card" data-phase="3">
+                    <div class="phase-icon">🧮</div>
+                    <h3>Fase 3: Calculadora</h3>
+                    <p>Simule cálculos financeiros importantes</p>
+                    <button class="phase-btn" onclick="startPhase('calculator1')">Iniciar</button>
+                </div>
+
+                <div class="phase-card" data-phase="4">
+                    <div class="phase-icon">🔗</div>
+                    <h3>Fase 4: Correspondência</h3>
+                    <p>Conecte termos financeiros com suas definições</p>
+                    <button class="phase-btn" onclick="startPhase('matching1')">Iniciar</button>
+                </div>
+
+                <div class="phase-card" data-phase="5">
+                    <div class="phase-icon">🧠</div>
+                    <h3>Fase 5: Jogo da Memória</h3>
+                    <p>Memorize conceitos financeiros de forma divertida</p>
+                    <button class="phase-btn" onclick="startPhase('memory1')">Iniciar</button>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stat-item">
+                    <span class="stat-label">Fases Concluídas:</span>
+                    <span class="stat-value" id="completedPhases">0/5</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pontuação Total:</span>
+                    <span class="stat-value" id="totalScore">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Nível:</span>
+                    <span class="stat-value" id="playerLevel">Iniciante</span>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Jogo de Saúde Financeira - Aprenda brincando!</p>
+        </footer>
+    </div>
+
+    <!-- Modal para instruções -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Como Jogar</h2>
+            <div class="instructions">
+                <p><strong>🎯 Objetivo:</strong> Complete todas as 5 fases para se tornar um expert em saúde financeira!</p>
+                <ul>
+                    <li><strong>Quiz:</strong> Responda perguntas sobre conceitos financeiros</li>
+                    <li><strong>Flashcards:</strong> Estude termos importantes com cartões interativos</li>
+                    <li><strong>Calculadora:</strong> Pratique cálculos financeiros reais</li>
+                    <li><strong>Correspondência:</strong> Conecte termos com suas definições</li>
+                    <li><strong>Memória:</strong> Encontre pares de conceitos relacionados</li>
+                </ul>
+                <p><strong>💡 Dica:</strong> Complete as fases em ordem para maximizar seu aprendizado!</p>
+            </div>
+            <button class="modal-btn" onclick="closeModal()">Entendi!</button>
+        </div>
+    </div>
+
+    <button class="help-btn" onclick="showInstructions()">?</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
